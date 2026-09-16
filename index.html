@@ -1,0 +1,1376 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Abd Elrahman Osmat — Junior QA / Software Tester</title>
+<meta name="description" content="Abd Elrahman Osmat — Junior QA / Manual Software Tester portfolio. DEPI Software Tester trainee with Java, Python, SQL, web development, and cybersecurity foundations.">
+<meta name="theme-color" content="#080808">
+<meta name="author" content="Abd Elrahman Osmat">
+<meta property="og:title" content="Abd Elrahman Osmat — Junior QA / Software Tester">
+<meta property="og:description" content="QA-focused portfolio with selected software projects, DEPI training, and 28 verified technical credentials.">
+<meta property="og:type" content="website">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Inter:wght@400;500;600;700;800&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #070707;
+  --panel: #0f0f0f;
+  --panel2: #141414;
+  --text: #f4f4f4;
+  --muted: #9a9a9a;
+  --line: #262626;
+  --red: #e4002b;
+  --red2: #ff3659;
+  --green: #00e676;
+  --blue: #3b82f6;
+  --max: 1180px;
+  --shadow: 0 22px 70px rgba(0,0,0,.4);
+  --radius: 20px;
+  --ease: cubic-bezier(.22,1,.36,1);
+}
+[data-theme="light"] {
+  --bg: #f7f7f5;
+  --panel: #ffffff;
+  --panel2: #f0f0ee;
+  --text: #111111;
+  --muted: #5c5c5c;
+  --line: #e0e0dc;
+  --shadow: 0 18px 50px rgba(0,0,0,.08);
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: Inter, system-ui, -apple-system, sans-serif;
+  line-height: 1.65;
+  overflow-x: hidden;
+  transition: background .4s var(--ease), color .4s var(--ease);
+}
+a { color: inherit; text-decoration: none; }
+.wrap { width: min(calc(100% - 36px), var(--max)); margin: 0 auto; }
+.mono { font-family: 'IBM Plex Mono', monospace; }
+.kicker {
+  font: 600 11px 'IBM Plex Mono', monospace;
+  letter-spacing: .16em;
+  color: var(--red);
+  text-transform: uppercase;
+}
+.muted { color: var(--muted); }
+
+/* Progress bar */
+#progress {
+  position: fixed; top: 0; left: 0; height: 3px;
+  background: linear-gradient(90deg, var(--red), var(--red2));
+  width: 0%; z-index: 100; transition: width .1s linear;
+}
+
+/* Particles / ambient */
+#particles {
+  position: fixed; inset: 0; pointer-events: none; z-index: -1;
+  opacity: .22;
+  background-image: radial-gradient(circle, rgba(228,0,43,.55) 1px, transparent 1px);
+  background-size: 46px 46px;
+  mask-image: linear-gradient(to bottom, #000 40%, transparent 90%);
+}
+[data-theme="light"] #particles { opacity: .08; }
+
+/* Header */
+.top {
+  border-bottom: 1px solid var(--line);
+  background: color-mix(in srgb, var(--bg) 88%, transparent);
+  backdrop-filter: blur(18px);
+  position: sticky; top: 0; z-index: 50;
+  transition: background .3s, border-color .3s;
+}
+.topin {
+  min-height: 58px;
+  display: flex; align-items: center; justify-content: space-between; gap: 16px;
+}
+.brand {
+  font: 500 14px 'IBM Plex Mono', monospace;
+  display: flex; align-items: center; gap: 8px;
+}
+.brand b { color: var(--red); }
+.nav-links {
+  display: flex; gap: 22px; flex-wrap: wrap; justify-content: flex-end;
+}
+.nav-links a {
+  color: var(--muted);
+  font: 500 11px 'IBM Plex Mono', monospace;
+  position: relative;
+  transition: color .25s;
+}
+.nav-links a:hover, .nav-links a.active { color: var(--text); }
+.nav-links a::after {
+  content: ''; position: absolute; left: 0; bottom: -4px;
+  width: 0; height: 1.5px; background: var(--red);
+  transition: width .3s var(--ease);
+}
+.nav-links a:hover::after, .nav-links a.active::after { width: 100%; }
+.header-actions { display: flex; align-items: center; gap: 12px; }
+.theme-btn, .menu-btn {
+  width: 38px; height: 38px; border-radius: 10px;
+  border: 1px solid var(--line); background: var(--panel2);
+  color: var(--text); cursor: pointer; display: grid; place-items: center;
+  font-size: 16px; transition: .25s;
+}
+.theme-btn:hover, .menu-btn:hover { border-color: var(--red); }
+.menu-btn { display: none; }
+
+/* Mobile nav */
+.mobile-nav {
+  display: none; position: fixed; inset: 0; z-index: 60;
+  background: color-mix(in srgb, var(--bg) 94%, transparent);
+  backdrop-filter: blur(20px);
+  padding: 80px 28px 40px;
+  flex-direction: column; gap: 18px;
+}
+.mobile-nav.open { display: flex; }
+.mobile-nav a {
+  font: 600 22px 'Archivo Black', sans-serif;
+  text-transform: uppercase; letter-spacing: -.02em;
+  padding: 10px 0; border-bottom: 1px solid var(--line);
+}
+
+/* Hero */
+.hero {
+  min-height: 86vh;
+  display: grid; align-items: center;
+  padding: 100px 0 90px;
+  border-bottom: 1px solid var(--line);
+  position: relative;
+  overflow: hidden;
+}
+.hero::before {
+  content: "";
+  position: absolute; inset: 0;
+  background:
+    linear-gradient(transparent 92%, rgba(228,0,43,.1) 100%),
+    repeating-linear-gradient(90deg, transparent 0 110px, rgba(255,255,255,.015) 111px 112px);
+  pointer-events: none;
+}
+.hero-grid {
+  display: grid;
+  grid-template-columns: 1.25fr .85fr;
+  gap: 48px;
+  align-items: end;
+}
+.hero h1 {
+  font: 400 clamp(56px, 9.2vw, 118px) / .86 'Archivo Black', sans-serif;
+  letter-spacing: -.05em;
+  margin: 14px 0 26px;
+  text-transform: uppercase;
+}
+.hero h1 span { display: block; }
+.role {
+  font: 600 clamp(15px, 1.9vw, 21px);
+  max-width: 720px;
+  margin-bottom: 14px;
+}
+.hero-copy {
+  max-width: 720px;
+  color: var(--muted);
+  font-size: 15.5px;
+  line-height: 1.75;
+}
+.actions {
+  display: flex; gap: 12px; flex-wrap: wrap; margin-top: 28px;
+}
+.btn {
+  display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+  min-height: 46px; padding: 0 18px;
+  border: 1px solid var(--line); border-radius: 12px;
+  font: 600 11px 'IBM Plex Mono', monospace;
+  letter-spacing: .04em;
+  transition: transform .25s var(--ease), border-color .25s, box-shadow .25s, background .25s;
+  cursor: pointer; background: transparent; color: var(--text);
+}
+.btn.primary {
+  background: linear-gradient(135deg, var(--red), var(--red2));
+  border-color: transparent;
+  box-shadow: 0 12px 32px rgba(228,0,43,.22);
+}
+.btn:hover {
+  transform: translateY(-3px);
+  border-color: var(--red);
+}
+.btn.primary:hover {
+  box-shadow: 0 16px 40px rgba(228,0,43,.32);
+}
+.hero-card {
+  border: 1px solid var(--line);
+  background: linear-gradient(155deg, color-mix(in srgb, var(--text) 7%, transparent), color-mix(in srgb, var(--text) 1.5%, transparent));
+  border-radius: 28px;
+  padding: 26px;
+  box-shadow: var(--shadow);
+  backdrop-filter: blur(16px);
+}
+.hero-card .status {
+  display: inline-flex; gap: 8px; align-items: center;
+  border: 1px solid color-mix(in srgb, var(--green) 30%, transparent);
+  color: var(--green);
+  border-radius: 999px; padding: 7px 12px;
+  font: 600 10px 'IBM Plex Mono', monospace;
+}
+.dot {
+  width: 7px; height: 7px; border-radius: 50%;
+  background: var(--green);
+  box-shadow: 0 0 12px var(--green);
+  animation: pulse 2s infinite;
+}
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: .45; }
+}
+.facts {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 11px; margin-top: 20px;
+}
+.fact {
+  padding: 14px;
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  background: color-mix(in srgb, var(--bg) 40%, transparent);
+}
+.fact b { display: block; font-size: 22px; font-weight: 700; }
+.fact span {
+  font-size: 10px; color: var(--muted);
+  font-family: 'IBM Plex Mono', monospace;
+}
+
+/* Sections */
+section {
+  padding: 96px 0;
+  border-bottom: 1px solid var(--line);
+}
+.section-head {
+  display: flex; align-items: flex-end; justify-content: space-between;
+  gap: 24px; margin-bottom: 34px;
+}
+.section-head h2 {
+  font: 400 clamp(32px, 4.8vw, 54px) / 1 'Archivo Black', sans-serif;
+  text-transform: uppercase;
+  letter-spacing: -.035em;
+  margin-top: 6px;
+}
+.section-head h2 span { color: var(--red); }
+.section-head p {
+  max-width: 520px;
+  color: var(--muted);
+  font-size: 14.5px;
+}
+
+/* Reveal animation */
+.reveal {
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity .7s var(--ease), transform .7s var(--ease);
+}
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Training */
+.training {
+  border: 1px solid var(--line);
+  border-radius: 26px;
+  padding: 30px;
+  background: linear-gradient(150deg, color-mix(in srgb, var(--text) 5.5%, transparent), color-mix(in srgb, var(--text) 1%, transparent));
+  box-shadow: var(--shadow);
+}
+.training-top {
+  display: flex; justify-content: space-between; gap: 20px; align-items: flex-start;
+}
+.pill {
+  display: inline-block;
+  padding: 6px 11px;
+  border-radius: 999px;
+  border: 1px solid color-mix(in srgb, var(--green) 35%, transparent);
+  color: var(--green);
+  font: 600 10px 'IBM Plex Mono', monospace;
+}
+.training h3 { font-size: 26px; margin: 12px 0 4px; }
+.training .date {
+  color: var(--muted);
+  font: 500 12px 'IBM Plex Mono', monospace;
+}
+.training > p { color: var(--muted); max-width: 860px; margin: 14px 0; }
+.chips { display: flex; flex-wrap: wrap; gap: 8px; margin: 16px 0; }
+.chip {
+  padding: 7px 11px;
+  border: 1px solid var(--line);
+  background: color-mix(in srgb, var(--text) 2.5%, transparent);
+  border-radius: 999px;
+  color: var(--muted);
+  font: 500 10px 'IBM Plex Mono', monospace;
+}
+.training ul {
+  margin: 18px 0 0; padding-left: 20px; color: var(--muted);
+}
+.training ul li { margin-bottom: 6px; }
+
+/* Skills */
+.qa-grid {
+  display: grid;
+  grid-template-columns: 1.1fr .9fr;
+  gap: 16px;
+}
+.skill-panel {
+  border: 1px solid var(--line);
+  border-radius: 20px;
+  padding: 22px;
+  background: color-mix(in srgb, var(--text) 2.2%, transparent);
+  transition: border-color .3s, transform .3s;
+}
+.skill-panel:hover { border-color: color-mix(in srgb, var(--red) 35%, transparent); }
+.skill-panel.primary {
+  border-color: color-mix(in srgb, var(--red) 28%, transparent);
+  background: linear-gradient(145deg, color-mix(in srgb, var(--red) 8%, transparent), color-mix(in srgb, var(--text) 1.5%, transparent));
+}
+.skill-panel h3 { margin: 0 0 14px; font-size: 17px; }
+.skill-list { display: flex; flex-wrap: wrap; gap: 8px; }
+.skill-list span {
+  padding: 8px 11px;
+  border-radius: 10px;
+  border: 1px solid var(--line);
+  font-size: 12px;
+  background: color-mix(in srgb, var(--bg) 30%, transparent);
+}
+.tool-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 9px;
+}
+.tool {
+  padding: 12px;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  font: 600 11px 'IBM Plex Mono', monospace;
+  text-align: center;
+  transition: border-color .25s, background .25s;
+}
+.tool:hover {
+  border-color: var(--red);
+  background: color-mix(in srgb, var(--red) 6%, transparent);
+}
+
+/* Projects */
+.projects {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+}
+.project {
+  position: relative;
+  border: 1px solid var(--line);
+  border-radius: 22px;
+  padding: 22px;
+  background: linear-gradient(150deg, color-mix(in srgb, var(--text) 5%, transparent), color-mix(in srgb, var(--text) 1%, transparent));
+  box-shadow: 0 16px 45px rgba(0,0,0,.18);
+  transition: transform .35s var(--ease), border-color .3s, box-shadow .35s;
+  overflow: hidden;
+}
+.project:hover {
+  transform: translateY(-7px);
+  border-color: color-mix(in srgb, var(--red) 45%, transparent);
+  box-shadow: 0 28px 60px rgba(0,0,0,.28), 0 0 28px color-mix(in srgb, var(--red) 8%, transparent);
+}
+.project.featured {
+  grid-column: span 2;
+  border-color: color-mix(in srgb, var(--red) 28%, transparent);
+}
+.project .num {
+  font: 600 10px 'IBM Plex Mono', monospace;
+  color: var(--red);
+}
+.project .icon {
+  width: 48px; height: 48px;
+  display: grid; place-items: center;
+  border-radius: 14px;
+  border: 1px solid var(--line);
+  background: color-mix(in srgb, var(--text) 4%, transparent);
+  font-size: 22px;
+  margin: 16px 0 12px;
+}
+.project h3 { margin: 0 0 8px; font-size: 19px; }
+.project p {
+  color: var(--muted);
+  font-size: 13px;
+  line-height: 1.7;
+}
+.tags { display: flex; flex-wrap: wrap; gap: 6px; margin: 14px 0; }
+.tags span {
+  font: 500 9px 'IBM Plex Mono', monospace;
+  color: var(--muted);
+  border: 1px solid var(--line);
+  padding: 5px 8px;
+  border-radius: 999px;
+}
+.project .actions { margin-top: 16px; display: flex; gap: 8px; flex-wrap: wrap; }
+.project .actions .btn { min-height: 36px; padding: 0 13px; font-size: 10px; }
+
+.additional { margin-top: 28px; border-top: 1px solid var(--line); padding-top: 24px; }
+.additional h3 { font-size: 16px; margin-bottom: 14px; }
+.additional-list {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+}
+.additional-item {
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  padding: 14px;
+  background: color-mix(in srgb, var(--text) 1.8%, transparent);
+  transition: border-color .25s, transform .25s;
+}
+.additional-item:hover {
+  border-color: var(--red);
+  transform: translateY(-3px);
+}
+.additional-item b { display: block; font-size: 13px; margin-bottom: 4px; }
+.additional-item span {
+  color: var(--muted);
+  font: 500 10px 'IBM Plex Mono', monospace;
+}
+
+/* Certificates */
+.cert-filters {
+  display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 22px;
+}
+.filter-btn {
+  padding: 8px 14px;
+  border-radius: 999px;
+  border: 1px solid var(--line);
+  background: transparent;
+  color: var(--muted);
+  font: 500 11px 'IBM Plex Mono', monospace;
+  cursor: pointer;
+  transition: .25s;
+}
+.filter-btn:hover, .filter-btn.active {
+  border-color: var(--red);
+  color: var(--text);
+  background: color-mix(in srgb, var(--red) 10%, transparent);
+}
+.cert-feature {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 12px;
+  margin-bottom: 28px;
+}
+.cert-card {
+  border: 1px solid var(--line);
+  border-radius: 18px;
+  background: linear-gradient(150deg, color-mix(in srgb, var(--text) 5%, transparent), color-mix(in srgb, var(--text) 1%, transparent));
+  overflow: hidden;
+  transition: transform .3s, border-color .3s;
+  cursor: pointer;
+}
+.cert-card:hover {
+  transform: translateY(-5px);
+  border-color: color-mix(in srgb, var(--red) 40%, transparent);
+}
+.cert-img {
+  aspect-ratio: 16/10;
+  background: #fff;
+  overflow: hidden;
+}
+.cert-img img {
+  width: 100%; height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform .4s var(--ease);
+}
+.cert-card:hover .cert-img img { transform: scale(1.04); }
+.cert-body { padding: 14px; }
+.cert-body small {
+  color: var(--red);
+  font: 600 9px 'IBM Plex Mono', monospace;
+  text-transform: uppercase;
+}
+.cert-body h3 {
+  font-size: 13.5px;
+  line-height: 1.35;
+  margin: 6px 0 4px;
+}
+.cert-body p {
+  font-size: 10px;
+  color: var(--muted);
+  margin: 0;
+}
+.cert-all {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 11px;
+}
+.cert-mini {
+  display: flex; gap: 12px; align-items: center;
+  padding: 12px;
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  background: color-mix(in srgb, var(--text) 1.8%, transparent);
+  cursor: pointer;
+  transition: border-color .25s, transform .25s;
+}
+.cert-mini:hover {
+  border-color: var(--red);
+  transform: translateY(-2px);
+}
+.cert-mini img {
+  width: 54px; height: 40px;
+  object-fit: cover;
+  border-radius: 7px;
+  background: #fff;
+  flex-shrink: 0;
+}
+.cert-mini b {
+  font-size: 11px;
+  line-height: 1.3;
+  display: block;
+}
+.cert-mini span {
+  font: 500 9px 'IBM Plex Mono', monospace;
+  color: var(--muted);
+}
+
+/* Resume */
+.resume {
+  display: grid;
+  grid-template-columns: 1.25fr .85fr;
+  gap: 16px;
+}
+.resume-card {
+  border: 1px solid var(--line);
+  border-radius: 22px;
+  padding: 24px;
+  background: color-mix(in srgb, var(--text) 2.2%, transparent);
+}
+.resume-card h3 { margin: 0 0 12px; font-size: 17px; }
+.resume-card p, .resume-card li {
+  color: var(--muted);
+  font-size: 13.5px;
+}
+.resume-card ul { padding-left: 18px; margin-top: 8px; }
+.resume-card li { margin-bottom: 6px; }
+
+/* Contact */
+.contact {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+.contact-card {
+  border: 1px solid var(--line);
+  border-radius: 22px;
+  padding: 26px;
+  background: linear-gradient(150deg, color-mix(in srgb, var(--text) 4.5%, transparent), color-mix(in srgb, var(--text) 1%, transparent));
+}
+.contact-links { display: grid; gap: 9px; margin-top: 18px; }
+.contact-links a {
+  display: flex; justify-content: space-between; align-items: center; gap: 10px;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  padding: 13px 15px;
+  font: 600 11px 'IBM Plex Mono', monospace;
+  transition: border-color .25s, background .25s;
+}
+.contact-links a:hover {
+  border-color: var(--red);
+  background: color-mix(in srgb, var(--red) 6%, transparent);
+}
+form { display: grid; gap: 10px; }
+input, textarea {
+  width: 100%;
+  background: color-mix(in srgb, var(--bg) 80%, transparent);
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  color: var(--text);
+  padding: 13px 14px;
+  font: 500 13px Inter, sans-serif;
+  transition: border-color .25s;
+}
+textarea { min-height: 140px; resize: vertical; }
+input:focus, textarea:focus {
+  outline: none;
+  border-color: var(--red);
+}
+
+/* Footer */
+footer {
+  padding: 32px 0 50px;
+  color: var(--muted);
+  font: 500 10px 'IBM Plex Mono', monospace;
+}
+footer .foot {
+  display: flex; justify-content: space-between; gap: 16px; flex-wrap: wrap;
+}
+
+/* Back to top */
+.back {
+  position: fixed; right: 22px; bottom: 22px;
+  width: 46px; height: 46px; border-radius: 50%;
+  border: 1px solid var(--line);
+  background: var(--panel);
+  color: var(--text);
+  display: grid; place-items: center;
+  opacity: 0; pointer-events: none;
+  transition: .25s;
+  z-index: 40;
+  font-size: 18px;
+}
+.back.show { opacity: 1; pointer-events: auto; }
+.back:hover { border-color: var(--red); transform: translateY(-3px); }
+
+/* Modal */
+.modal {
+  position: fixed; inset: 0;
+  background: rgba(0,0,0,.78);
+  backdrop-filter: blur(14px);
+  display: none;
+  align-items: center; justify-content: center;
+  padding: 18px;
+  z-index: 100;
+}
+.modal.open { display: flex; }
+.modalbox {
+  width: min(880px, 100%);
+  max-height: 90vh;
+  overflow: auto;
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-radius: 24px;
+  box-shadow: 0 40px 120px rgba(0,0,0,.55);
+  position: relative;
+  animation: modalIn .35s var(--ease);
+}
+@keyframes modalIn {
+  from { opacity: 0; transform: translateY(20px) scale(.97); }
+  to { opacity: 1; transform: none; }
+}
+.close {
+  position: absolute; right: 14px; top: 14px;
+  width: 38px; height: 38px; border-radius: 50%;
+  border: 1px solid var(--line);
+  background: color-mix(in srgb, var(--bg) 70%, transparent);
+  color: var(--text);
+  cursor: pointer;
+  font-size: 20px;
+  display: grid; place-items: center;
+  z-index: 2;
+}
+.modalimg { background: #fff; }
+.modalimg img {
+  width: 100%; max-height: 58vh;
+  object-fit: contain; display: block;
+}
+.modalbody { padding: 26px; }
+.modalbody h3 { font-size: 24px; margin: 0 0 8px; }
+.modalbody p, .modalbody li {
+  color: var(--muted); font-size: 14px;
+}
+.modalbody ul { padding-left: 20px; margin: 12px 0; }
+.modalbody li { margin-bottom: 6px; }
+.modalactions {
+  display: flex; gap: 10px; flex-wrap: wrap; margin-top: 18px;
+}
+
+/* Responsive */
+@media (max-width: 980px) {
+  .hero-grid, .qa-grid, .resume, .contact { grid-template-columns: 1fr; }
+  .projects { grid-template-columns: repeat(2, 1fr); }
+  .project.featured { grid-column: span 2; }
+  .cert-feature, .cert-all { grid-template-columns: repeat(2, 1fr); }
+  .additional-list { grid-template-columns: repeat(2, 1fr); }
+  .nav-links { display: none; }
+  .menu-btn { display: grid; }
+}
+@media (max-width: 640px) {
+  .topin { padding: 8px 0; }
+  .hero { min-height: auto; padding: 72px 0 60px; }
+  .hero h1 { font-size: 52px; }
+  .projects { grid-template-columns: 1fr; }
+  .project.featured { grid-column: auto; }
+  .cert-feature, .cert-all, .additional-list { grid-template-columns: 1fr; }
+  .section-head { flex-direction: column; align-items: flex-start; }
+  .section-head p { margin-top: 12px; }
+  .training-top { flex-direction: column; }
+  .facts { grid-template-columns: 1fr 1fr; }
+  .wrap { width: min(calc(100% - 24px), var(--max)); }
+  section { padding: 68px 0; }
+}
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+</style>
+</head>
+<body>
+<div id="progress"></div>
+<div id="particles"></div>
+
+<header class="top">
+  <div class="wrap topin">
+    <a class="brand" href="#top"><b>◆</b> ABD ELRAHMAN / QA</a>
+    <nav class="nav-links" aria-label="Main">
+      <a href="#training">TRAINING</a>
+      <a href="#skills">SKILLS</a>
+      <a href="#projects">PROJECTS</a>
+      <a href="#certificates">CERTS</a>
+      <a href="#contact">CONTACT</a>
+    </nav>
+    <div class="header-actions">
+      <button class="theme-btn" id="themeBtn" aria-label="Toggle theme" title="Toggle light/dark">◐</button>
+      <button class="menu-btn" id="menuBtn" aria-label="Open menu">☰</button>
+    </div>
+  </div>
+</header>
+
+<div class="mobile-nav" id="mobileNav">
+  <a href="#training" data-close>TRAINING</a>
+  <a href="#skills" data-close>SKILLS</a>
+  <a href="#projects" data-close>PROJECTS</a>
+  <a href="#certificates" data-close>CERTS</a>
+  <a href="#contact" data-close>CONTACT</a>
+</div>
+
+<main id="top">
+  <!-- HERO -->
+  <section class="hero">
+    <div class="wrap hero-grid">
+      <div class="reveal">
+        <div class="kicker">Junior QA · Software Testing · Computer Science</div>
+        <h1>ABD<br>ELRAHMAN</h1>
+        <p class="role">Manual Software Testing · STLC · Test Design · SQL · Java · Python</p>
+        <p class="hero-copy">Computer Science student at EELU and current DEPI Software Tester Engineer trainee. I build and analyze software systems with a QA-first mindset, supported by practical programming, database, web, networking, and cybersecurity foundations.</p>
+        <div class="actions">
+          <a class="btn primary" href="Abd-Elrahman-Osmat-CV.docx" download>DOWNLOAD CV ↓</a>
+          <a class="btn" href="#projects">VIEW SELECTED WORK →</a>
+        </div>
+      </div>
+      <aside class="hero-card reveal">
+        <span class="status"><i class="dot"></i> DEPI TRAINING · IN PROGRESS</span>
+        <h2 style="margin:18px 0 6px;font-size:22px">QA-first profile</h2>
+        <p class="muted" style="font-size:13px;line-height:1.6">Focused on becoming a reliable Junior QA / Manual Software Tester while using programming and database skills to understand systems deeply.</p>
+        <div class="facts">
+          <div class="fact"><b>28</b><span>VERIFIED CREDENTIALS</span></div>
+          <div class="fact"><b>7</b><span>SELECTED PROJECTS</span></div>
+          <div class="fact"><b>2026</b><span>DEPI QA TRACK</span></div>
+          <div class="fact"><b>EELU</b><span>COMPUTER SCIENCE</span></div>
+        </div>
+      </aside>
+    </div>
+  </section>
+
+  <!-- TRAINING -->
+  <section id="training">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <div>
+          <div class="kicker">01 / Professional Development</div>
+          <h2>DEPI <span>QA Track</span></h2>
+        </div>
+        <p>The strongest role-aligned experience currently in the profile: an active Software Tester Engineer training path with practical testing concepts and tools.</p>
+      </div>
+      <article class="training reveal">
+        <div class="training-top">
+          <div>
+            <span class="pill">IN PROGRESS</span>
+            <h3>Digital Egypt Pioneers Initiative (DEPI)</h3>
+            <div class="date">Software Tester Engineer Trainee · July 2026 – December 2026</div>
+          </div>
+          <div style="font-size:36px">🧪</div>
+        </div>
+        <p>Training focused on Software Testing and Quality Assurance, including STLC, requirement analysis, test analysis and design, test case preparation, manual execution, defect reporting, and practical exposure to Jira, Postman, Selenium, SQL, and Java.</p>
+        <div class="chips">
+          <span class="chip">Software Testing</span>
+          <span class="chip">STLC</span>
+          <span class="chip">Test Case Design</span>
+          <span class="chip">Manual Testing</span>
+          <span class="chip">Defect Reporting</span>
+          <span class="chip">Jira</span>
+          <span class="chip">Postman</span>
+          <span class="chip">Selenium</span>
+          <span class="chip">SQL</span>
+          <span class="chip">Agile</span>
+        </div>
+        <ul>
+          <li>Requirement analysis and test analysis/design.</li>
+          <li>Test case preparation, execution, and defect tracking.</li>
+          <li>Practical exercises and capstone work as part of the program.</li>
+        </ul>
+      </article>
+    </div>
+  </section>
+
+  <!-- SKILLS -->
+  <section id="skills">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <div>
+          <div class="kicker">02 / Technical Profile</div>
+          <h2>Skills <span>Stack</span></h2>
+        </div>
+        <p>Skills are separated from credentials so recruiters can see actual capabilities first.</p>
+      </div>
+      <div class="qa-grid">
+        <div class="skill-panel primary reveal">
+          <h3>Software Testing / QA</h3>
+          <div class="skill-list">
+            <span>Software Testing Fundamentals</span>
+            <span>STLC</span>
+            <span>Requirement Analysis</span>
+            <span>Test Case Design</span>
+            <span>Manual Testing</span>
+            <span>Functional Testing</span>
+            <span>Test Execution</span>
+            <span>Defect / Bug Tracking</span>
+            <span>Test Analysis & Design</span>
+            <span>QA Practices</span>
+          </div>
+        </div>
+        <div class="skill-panel reveal">
+          <h3>Testing Tools</h3>
+          <div class="tool-grid">
+            <div class="tool">Jira</div>
+            <div class="tool">Postman</div>
+            <div class="tool">Selenium</div>
+            <div class="tool">Git</div>
+            <div class="tool">GitHub</div>
+            <div class="tool">VS Code</div>
+            <div class="tool">IntelliJ IDEA</div>
+            <div class="tool">Maven</div>
+          </div>
+        </div>
+        <div class="skill-panel reveal">
+          <h3>Programming & Web</h3>
+          <div class="skill-list">
+            <span>Java</span>
+            <span>Python</span>
+            <span>OOP</span>
+            <span>Inheritance</span>
+            <span>Encapsulation</span>
+            <span>Polymorphism</span>
+            <span>Collections</span>
+            <span>HTML5</span>
+            <span>CSS3</span>
+            <span>JavaScript</span>
+          </div>
+        </div>
+        <div class="skill-panel reveal">
+          <h3>Data, Databases & Foundations</h3>
+          <div class="skill-list">
+            <span>SQL</span>
+            <span>SQLite</span>
+            <span>JDBC</span>
+            <span>PreparedStatement</span>
+            <span>Primary / Foreign Keys</span>
+            <span>INNER JOIN</span>
+            <span>pandas</span>
+            <span>Matplotlib</span>
+            <span>Networking</span>
+            <span>Endpoint Security</span>
+            <span>Cyber Threat Management</span>
+            <span>Linux</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROJECTS -->
+  <section id="projects">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <div>
+          <div class="kicker">03 / Selected Work</div>
+          <h2>Projects <span>That Matter</span></h2>
+        </div>
+        <p>Selected for technical depth, relevance, and presentation value — not simply because they exist in the repository.</p>
+      </div>
+      <div class="projects">
+        <article class="project featured reveal">
+          <span class="num">01 · HIGH PRIORITY</span>
+          <div class="icon">🎓</div>
+          <h3>Student Performance & Analytics System</h3>
+          <p>End-to-end academic performance system connecting a Java CLI, SQLite database, SQL relationships, and Python analytics.</p>
+          <div class="tags">
+            <span>Java</span><span>JDBC</span><span>SQLite</span><span>SQL</span><span>Python</span><span>pandas</span><span>Matplotlib</span>
+          </div>
+          <div class="actions">
+            <a class="btn primary" href="https://github.com/bdalrhmnsmt156-eng/StudentPerformanceSystem" target="_blank" rel="noopener">GitHub ↗</a>
+            <button class="btn" data-project="student">DETAILS</button>
+          </div>
+        </article>
+        <article class="project reveal">
+          <span class="num">02 · JAVA</span>
+          <div class="icon">🏨</div>
+          <h3>Hotel Management System</h3>
+          <p>Java application for room availability, date-based searches, and reservation workflows using Java Time, Streams, and Collections.</p>
+          <div class="tags"><span>Java</span><span>OOP</span><span>LocalDate</span><span>Streams</span></div>
+          <div class="actions">
+            <a class="btn primary" href="https://github.com/bdalrhmnsmt156-eng/HotelManagementSystem" target="_blank" rel="noopener">GitHub ↗</a>
+            <button class="btn" data-project="hotel">DETAILS</button>
+          </div>
+        </article>
+        <article class="project reveal">
+          <span class="num">03 · JAVA</span>
+          <div class="icon">👥</div>
+          <h3>Employee Management System</h3>
+          <p>Console-based CRUD and payroll system demonstrating inheritance, abstraction, overriding, polymorphism, and HashMap-based management.</p>
+          <div class="tags"><span>Java</span><span>OOP</span><span>HashMap</span><span>CRUD</span></div>
+          <div class="actions">
+            <a class="btn primary" href="https://github.com/bdalrhmnsmt156-eng/Employee-Management-System" target="_blank" rel="noopener">GitHub ↗</a>
+            <button class="btn" data-project="employee">DETAILS</button>
+          </div>
+        </article>
+        <article class="project reveal">
+          <span class="num">04 · JAVA</span>
+          <div class="icon">⌨️</div>
+          <h3>Build Your Own Shell</h3>
+          <p>Java implementation developed through the CodeCrafters shell challenge, covering command parsing, REPL concepts, builtins, and external program execution.</p>
+          <div class="tags"><span>Java</span><span>Maven</span><span>CLI</span><span>Parsing</span></div>
+          <div class="actions">
+            <a class="btn primary" href="https://github.com/bdalrhmnsmt156-eng/shell-java" target="_blank" rel="noopener">GitHub ↗</a>
+            <button class="btn" data-project="shell">DETAILS</button>
+          </div>
+        </article>
+        <article class="project reveal">
+          <span class="num">05 · WEB / LIVE</span>
+          <div class="icon">🗺️</div>
+          <h3>World Discovery</h3>
+          <p>Interactive geography website using image maps, JavaScript-driven content, and browser geolocation.</p>
+          <div class="tags"><span>HTML5</span><span>CSS3</span><span>JavaScript</span><span>Geolocation</span></div>
+          <div class="actions">
+            <a class="btn primary" href="https://bdalrhmnsmt156-eng.github.io/World-Discovery/" target="_blank" rel="noopener">OPEN SITE ↗</a>
+            <a class="btn" href="https://github.com/bdalrhmnsmt156-eng/World-Discovery" target="_blank" rel="noopener">GitHub</a>
+          </div>
+        </article>
+        <article class="project reveal">
+          <span class="num">06 · WEB / LIVE</span>
+          <div class="icon">🏛️</div>
+          <h3>Harbor Light Community Center</h3>
+          <p>Structured community-center website with semantic navigation, accessibility-minded content, services, events, contact details, and Schema.org event metadata.</p>
+          <div class="tags"><span>HTML5</span><span>CSS3</span><span>Accessibility</span><span>Schema.org</span></div>
+          <div class="actions">
+            <a class="btn primary" href="https://bdalrhmnsmt156-eng.github.io/Harbor-Light-Community-Cente/" target="_blank" rel="noopener">OPEN SITE ↗</a>
+            <a class="btn" href="https://github.com/bdalrhmnsmt156-eng/Harbor-Light-Community-Cente" target="_blank" rel="noopener">GitHub</a>
+          </div>
+        </article>
+        <article class="project reveal">
+          <span class="num">07 · WEB / LIVE</span>
+          <div class="icon">✈️</div>
+          <h3>My Top 3 Cities in the World</h3>
+          <p>Responsive travel experience featuring Tokyo, Paris, and New York with comparison data, multimedia, imagery, and contact UI.</p>
+          <div class="tags"><span>HTML5</span><span>CSS3</span><span>Responsive UI</span></div>
+          <div class="actions">
+            <a class="btn primary" href="https://bdalrhmnsmt156-eng.github.io/My-Top-3-Cities-in-the-Worl/" target="_blank" rel="noopener">OPEN SITE ↗</a>
+            <a class="btn" href="https://github.com/bdalrhmnsmt156-eng/My-Top-3-Cities-in-the-Worl" target="_blank" rel="noopener">GitHub</a>
+          </div>
+        </article>
+      </div>
+      <div class="additional reveal">
+        <h3>Additional GitHub Work</h3>
+        <div class="additional-list">
+          <a class="additional-item" href="https://github.com/bdalrhmnsmt156-eng/Company-Management-System-Java" target="_blank" rel="noopener">
+            <b>Company Management System</b><span>Java · OOP · Composition</span>
+          </a>
+          <a class="additional-item" href="https://github.com/bdalrhmnsmt156-eng/python-booking_system" target="_blank" rel="noopener">
+            <b>Flight Booking System</b><span>Python · OOP · UUID</span>
+          </a>
+          <a class="additional-item" href="https://github.com/bdalrhmnsmt156-eng/banckaccount" target="_blank" rel="noopener">
+            <b>Bank Account System</b><span>Java · OOP · Validation</span>
+          </a>
+          <a class="additional-item" href="https://github.com/bdalrhmnsmt156-eng/Currency-Converter" target="_blank" rel="noopener">
+            <b>Currency Converter</b><span>Java · CLI</span>
+          </a>
+          <a class="additional-item" href="https://github.com/bdalrhmnsmt156-eng/Polymorphism" target="_blank" rel="noopener">
+            <b>OOP & Polymorphism</b><span>Python · OOP</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CERTIFICATES -->
+  <section id="certificates">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <div>
+          <div class="kicker">04 / Credentials</div>
+          <h2>Verified <span>Certifications</span></h2>
+        </div>
+        <p><strong>28 verified credentials</strong> are represented from the certificate bundle. Filter by category or click any card for full details.</p>
+      </div>
+      <div class="cert-filters reveal" id="certFilters">
+        <button class="filter-btn active" data-filter="all">All</button>
+        <button class="filter-btn" data-filter="cybersecurity">Cybersecurity</button>
+        <button class="filter-btn" data-filter="programming">Programming</button>
+        <button class="filter-btn" data-filter="data">Data & SQL</button>
+        <button class="filter-btn" data-filter="networking">Networking</button>
+        <button class="filter-btn" data-filter="web">Web</button>
+        <button class="filter-btn" data-filter="ai">AI</button>
+        <button class="filter-btn" data-filter="foundations">Foundations</button>
+        <button class="filter-btn" data-filter="language">Language</button>
+      </div>
+      <div class="cert-feature" id="featuredCerts"></div>
+      <h3 style="margin:26px 0 14px;font-size:16px" class="reveal">All 28 Credentials</h3>
+      <div class="cert-all" id="allCerts"></div>
+    </div>
+  </section>
+
+  <!-- RESUME -->
+  <section id="resume">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <div>
+          <div class="kicker">05 / Recruiter View</div>
+          <h2>Resume <span>Snapshot</span></h2>
+        </div>
+        <p>A short, human-readable summary that matches the downloadable CV and the QA-first positioning of this portfolio.</p>
+      </div>
+      <div class="resume">
+        <article class="resume-card reveal">
+          <h3>Professional Summary</h3>
+          <p>Computer Science student at Egyptian E-Learning University (EELU) and current DEPI Software Tester Engineer trainee. Building practical capability in software testing, STLC, requirement analysis, test case design, manual testing, test execution, defect reporting, SQL, and testing tools. Supported by hands-on Java, Python, database, and web projects.</p>
+          <h3 style="margin-top:22px">Education</h3>
+          <p><strong>Faculty of Computers and Information — EELU</strong><br>Bachelor of Computer Science · 2025–Present · Expected 2029 · Sohag, Egypt.</p>
+        </article>
+        <article class="resume-card reveal">
+          <h3>Role Direction</h3>
+          <ul>
+            <li>Junior QA / Manual Software Tester</li>
+            <li>Software Testing & Quality Assurance</li>
+            <li>Functional testing and test design</li>
+            <li>SQL/database-supported testing</li>
+            <li>Programming foundations for system understanding</li>
+          </ul>
+          <div class="actions" style="margin-top:20px">
+            <a class="btn primary" href="Abd-Elrahman-Osmat-CV.docx" download>DOWNLOAD FULL CV</a>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <div>
+          <div class="kicker">06 / Contact</div>
+          <h2>Let's <span>Connect</span></h2>
+        </div>
+        <p>For internships, entry-level QA opportunities, project discussions, or collaboration.</p>
+      </div>
+      <div class="contact">
+        <div class="contact-card reveal">
+          <h3>Direct Contact</h3>
+          <p class="muted" style="margin-top:6px">Available for Junior QA / Manual Software Tester opportunities.</p>
+          <div class="contact-links">
+            <a href="mailto:bdalrhmnsmt156@gmail.com"><span>Email</span><span>→</span></a>
+            <a href="tel:+201505950322"><span>Phone · +20 15 0595 0322</span><span>→</span></a>
+            <a href="https://wa.me/201505950322" target="_blank" rel="noopener"><span>WhatsApp</span><span>→</span></a>
+            <a href="https://github.com/bdalrhmnsmt156-eng" target="_blank" rel="noopener"><span>GitHub</span><span>→</span></a>
+            <a href="https://www.linkedin.com/in/abd-elrahman-osmat-b147ab317/" target="_blank" rel="noopener"><span>LinkedIn</span><span>→</span></a>
+          </div>
+        </div>
+        <div class="contact-card reveal">
+          <h3>Send a Message</h3>
+          <form id="contactForm" style="margin-top:14px">
+            <input id="name" placeholder="Your name" required autocomplete="name">
+            <input id="subject" placeholder="Subject" required>
+            <textarea id="message" placeholder="Your message" required></textarea>
+            <button class="btn primary" type="submit">OPEN EMAIL →</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap foot">
+    <span>ABD ELRAHMAN OSMAT · JUNIOR QA / SOFTWARE TESTER</span>
+    <span>28 CREDENTIALS · SELECTED PROJECTS · DEPI 2026</span>
+  </div>
+</footer>
+
+<a class="back" id="back" href="#top" aria-label="Back to top">↑</a>
+
+<div class="modal" id="modal" aria-hidden="true" role="dialog" aria-modal="true">
+  <div class="modalbox">
+    <button class="close" id="close" aria-label="Close">×</button>
+    <div class="modalimg" id="modalImg"></div>
+    <div class="modalbody" id="modalBody"></div>
+  </div>
+</div>
+
+<script>
+/* ====== Data ====== */
+const certs = [
+  ['Junior Cybersecurity Analyst Career Path','Cisco Networking Academy','04 Mar 2026','junior-cybersecurity-analyst','cybersecurity','Career-path credential focused on junior cybersecurity analyst foundations.'],
+  ['Cyber Threat Management','Cisco Networking Academy','16 Feb 2026','cyber-threat-management','cybersecurity','Threat-management fundamentals from Cisco Networking Academy.'],
+  ['Endpoint Security','Cisco Networking Academy','04 Mar 2026','endpoint-security','cybersecurity','Endpoint security, host protection, and defensive fundamentals.'],
+  ['Network Security','Huawei ICT Academy','14 Jul 2026','network-security','cybersecurity','Huawei ICT Academy credential covering network security concepts.'],
+  ['Introduction to Cybersecurity','Cisco Networking Academy · Skills Plus Egypt','02 Feb 2026','introduction-to-cybersecurity','cybersecurity','Introductory cybersecurity credential covering core security concepts.'],
+  ['Python Essentials 2','Cisco Networking Academy · OpenEDG Python Institute','06 Aug 2026','python-essentials-2','programming','Intermediate Python with modular programming, debugging, OOP, and real-world problem modeling.'],
+  ['Python Essentials 1','Cisco Networking Academy · OpenEDG Python Institute','27 Feb 2026','python-essentials-1','programming','Python fundamentals including syntax, data types, control flow, functions, and data structures.'],
+  ['Python Programming Basics','Huawei ICT Academy','11 Jul 2026','python-programming-basics','programming','Huawei ICT Academy credential in Python programming basics.'],
+  ['Java Intermediate','Sololearn','14 Aug 2026','java-programming-1','programming','Java OOP, inheritance, abstraction, exceptions, collections, multithreading, and file I/O.'],
+  ['Introduction to Java','Sololearn','13 May 2026','java-programming-1','programming','Foundational Java programming concepts and syntax.'],
+  ['Introduction to SQL','Sololearn','22 Jul 2026','introduction-to-sql','data','SQL querying and relational database fundamentals.'],
+  ['Database Fundamentals','ITI Mahara-Tech','17 Jul 2026','database-fundamentals','data','Relational database fundamentals and structured data concepts.'],
+  ['Data Science & Analytics','HP LIFE · HP Foundation','13 Apr 2026','data-science-analytics','data','Introduction to data science, analytics practices, methodologies, and data-driven decisions.'],
+  ['Networking Basics','Cisco Networking Academy','04 Mar 2026','networking-basics','networking','Fundamental networking concepts and troubleshooting foundations.'],
+  ['Networking Devices and Initial Configuration','Cisco Networking Academy','04 Mar 2026','networking-devices','networking','Networking-device configuration and initial setup fundamentals.'],
+  ['Introduction to IoT & Digital Transformation','Cisco Networking Academy','16 Feb 2026','introduction-to-iot','foundations','IoT and digital transformation fundamentals.'],
+  ['IT Customer Support Basics','Cisco Networking Academy','18 Aug 2026','it-customer-support','foundations','Foundational IT support and troubleshooting concepts.'],
+  ['Computer Hardware Basics','Cisco Networking Academy','07 Feb 2026','computer-hardware-basics','foundations','Computer hardware and component fundamentals.'],
+  ['Introduction to Modern AI','Cisco Networking Academy','08 Feb 2026','introduction-to-modern-ai','ai','Introduction to modern AI concepts.'],
+  ['Search and AI (Arabic)','Huawei ICT Academy','12 Jul 2026','search-and-ai','ai','Search and AI fundamentals delivered by Huawei ICT Academy.'],
+  ['Computational Thinking','ITI Mahara-Tech','12 Mar 2026','computational-thinking','foundations','Computational thinking and structured problem-solving foundations.'],
+  ['Ubuntu Linux Essentials','ITI Mahara-Tech','09 Mar 2026','ubuntu-linux','systems','Linux/Ubuntu essentials including command-line and system foundations.'],
+  ['HTML Essentials','Cisco Networking Academy','06 Sep 2026','html-essentials','web','HTML fundamentals from Cisco Networking Academy.'],
+  ['Cybersecurity For All','ITI Mahara-Tech · EG-CERT','17 Jul 2026','cybersecurity-for-all','cybersecurity','Short foundational cybersecurity awareness credential.'],
+  ['Cyber Security Specialization','Edraak','14 Apr 2026','cyber-security-specialization','cybersecurity','Edraak specialization covering cybersecurity basics, attack techniques, and protection.'],
+  ['Java Programming 1','Edraak','13 Apr 2026','java-programming-1','programming','Java Programming 1 covering programming syntax, data, and basic programming concepts.'],
+  ['English Conversational Skills for Beginners Series','Edraak','15 Apr 2026','english-conversational','language','Three-course beginner conversational English series.'],
+  ['International Computer Driving Licence — ICDL Base','Edraak','14 Apr 2026','icdl-base','foundations','ICDL Base covering Computer Essentials, Word Processing, Excel, and Internet & Email Essentials.']
+];
+
+const featuredNames = new Set([
+  'Junior Cybersecurity Analyst Career Path','Cyber Threat Management','Endpoint Security','Network Security',
+  'Python Essentials 2','Python Essentials 1','Java Intermediate','Introduction to SQL',
+  'Database Fundamentals','HTML Essentials','Data Science & Analytics','Networking Basics'
+]);
+
+const projectData = {
+  student: {
+    title: 'Student Performance & Analytics System',
+    desc: 'An end-to-end multi-language application connecting a Java CLI, SQLite data layer, and Python analytics layer.',
+    features: [
+      'Java CLI workflow with JDBC and PreparedStatement',
+      'SQLite relational schema with primary keys, foreign keys, and INNER JOIN',
+      'Python pandas for data processing',
+      'Matplotlib output for performance visualization'
+    ],
+    url: 'https://github.com/bdalrhmnsmt156-eng/StudentPerformanceSystem'
+  },
+  hotel: {
+    title: 'Hotel Management System',
+    desc: 'Java hotel-management application for room availability, date-based searches, and reservations.',
+    features: [
+      'Current room availability',
+      'Date-based room search',
+      'Upcoming availability',
+      'Create, edit, and cancel reservations',
+      'Java Time API, Streams, and Collections'
+    ],
+    url: 'https://github.com/bdalrhmnsmt156-eng/HotelManagementSystem'
+  },
+  employee: {
+    title: 'Employee Management System',
+    desc: 'Java console application demonstrating practical OOP and CRUD operations.',
+    features: [
+      'Full-Time, Part-Time, and Manager employee types',
+      'Search, remove, update, and display operations',
+      'Payroll and salary calculations',
+      'HashMap storage',
+      'Inheritance, abstraction, overriding, and polymorphism'
+    ],
+    url: 'https://github.com/bdalrhmnsmt156-eng/Employee-Management-System'
+  },
+  shell: {
+    title: 'Build Your Own Shell',
+    desc: 'Java solution for the CodeCrafters shell challenge.',
+    features: [
+      'Command parsing',
+      'REPL concepts',
+      'Builtin commands such as cd, pwd, and echo',
+      'External program execution',
+      'Maven-based structure'
+    ],
+    url: 'https://github.com/bdalrhmnsmt156-eng/shell-java'
+  }
+};
+
+/* ====== Render Certificates ====== */
+const feat = document.getElementById('featuredCerts');
+const all = document.getElementById('allCerts');
+
+function card(c) {
+  return `<article class="cert-card" tabindex="0" data-cert="${c[0].replace(/"/g,'&quot;')}" data-cat="${c[4]}">
+    <div class="cert-img"><img loading="lazy" src="assets/certificates/${c[3]}.jpg" alt="${c[0]} certificate"></div>
+    <div class="cert-body"><small>${c[4]}</small><h3>${c[0]}</h3><p>${c[1]} · ${c[2]}</p></div>
+  </article>`;
+}
+
+function mini(c) {
+  return `<article class="cert-mini" tabindex="0" data-cert="${c[0].replace(/"/g,'&quot;')}" data-cat="${c[4]}">
+    <img loading="lazy" src="assets/certificates/${c[3]}.jpg" alt="">
+    <div><b>${c[0]}</b><span>${c[1]} · ${c[2]}</span></div>
+  </article>`;
+}
+
+certs.filter(c => featuredNames.has(c[0])).forEach(c => feat.insertAdjacentHTML('beforeend', card(c)));
+certs.forEach(c => all.insertAdjacentHTML('beforeend', mini(c)));
+
+/* ====== Certificate Filters ====== */
+document.getElementById('certFilters').addEventListener('click', e => {
+  const btn = e.target.closest('.filter-btn');
+  if (!btn) return;
+  document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  const f = btn.dataset.filter;
+  document.querySelectorAll('#allCerts .cert-mini, #featuredCerts .cert-card').forEach(el => {
+    const show = f === 'all' || el.dataset.cat === f;
+    el.style.display = show ? '' : 'none';
+  });
+});
+
+/* ====== Modal ====== */
+const modal = document.getElementById('modal');
+const modalImg = document.getElementById('modalImg');
+const modalBody = document.getElementById('modalBody');
+
+function openCert(name) {
+  const c = certs.find(x => x[0] === name);
+  if (!c) return;
+  modalImg.innerHTML = `<img src="assets/certificates/${c[3]}.jpg" alt="${c[0]} certificate">`;
+  modalBody.innerHTML = `
+    <div class="kicker">${c[4]}</div>
+    <h3>${c[0]}</h3>
+    <p>${c[1]} · ${c[2]}</p>
+    <p style="margin-top:12px">${c[5]}</p>`;
+  modal.classList.add('open');
+  modal.setAttribute('aria-hidden', 'false');
+  document.body.style.overflow = 'hidden';
+}
+
+function openProject(id) {
+  const p = projectData[id];
+  if (!p) return;
+  modalImg.innerHTML = '';
+  modalBody.innerHTML = `
+    <div class="kicker">Selected Project</div>
+    <h3>${p.title}</h3>
+    <p>${p.desc}</p>
+    <ul>${p.features.map(x => `<li>${x}</li>`).join('')}</ul>
+    <div class="modalactions">
+      <a class="btn primary" href="${p.url}" target="_blank" rel="noopener">OPEN GITHUB ↗</a>
+    </div>`;
+  modal.classList.add('open');
+  modal.setAttribute('aria-hidden', 'false');
+  document.body.style.overflow = 'hidden';
+}
+
+function closeModal() {
+  modal.classList.remove('open');
+  modal.setAttribute('aria-hidden', 'true');
+  document.body.style.overflow = '';
+}
+
+document.addEventListener('click', e => {
+  const c = e.target.closest('[data-cert]');
+  if (c) { openCert(c.dataset.cert); return; }
+  const p = e.target.closest('[data-project]');
+  if (p) { openProject(p.dataset.project); }
+});
+
+document.getElementById('close').onclick = closeModal;
+modal.addEventListener('click', e => { if (e.target === modal) closeModal(); });
+document.addEventListener('keydown', e => { if (e.key === 'Escape') closeModal(); });
+
+/* Keyboard activation */
+document.querySelectorAll('[data-cert], [data-project]').forEach(el => {
+  el.addEventListener('keydown', e => {
+    if (e.key === 'Enter' || e.key === ' ') {
+      e.preventDefault();
+      el.click();
+    }
+  });
+});
+
+/* ====== Contact form ====== */
+document.getElementById('contactForm').addEventListener('submit', e => {
+  e.preventDefault();
+  const name = document.getElementById('name').value.trim();
+  const subject = document.getElementById('subject').value.trim();
+  const message = document.getElementById('message').value.trim();
+  location.href = 'mailto:bdalrhmnsmt156@gmail.com?subject=' + encodeURIComponent(subject) +
+    '&body=' + encodeURIComponent('Name: ' + name + '\n\n' + message);
+});
+
+/* ====== Progress bar + Back to top + Active nav ====== */
+const progress = document.getElementById('progress');
+const back = document.getElementById('back');
+const sections = [...document.querySelectorAll('section[id]')];
+
+function onScroll() {
+  const h = document.documentElement;
+  const scrolled = h.scrollTop || document.body.scrollTop;
+  const height = h.scrollHeight - h.clientHeight;
+  progress.style.width = (scrolled / height * 100) + '%';
+  back.classList.toggle('show', scrolled > 480);
+
+  // Active nav
+  let current = '';
+  sections.forEach(s => {
+    if (scrolled >= s.offsetTop - 120) current = s.id;
+  });
+  document.querySelectorAll('.nav-links a').forEach(a => {
+    a.classList.toggle('active', a.getAttribute('href') === '#' + current);
+  });
+}
+addEventListener('scroll', onScroll, { passive: true });
+onScroll();
+
+/* ====== Theme toggle ====== */
+const themeBtn = document.getElementById('themeBtn');
+const saved = localStorage.getItem('theme');
+if (saved === 'light') document.documentElement.setAttribute('data-theme', 'light');
+
+themeBtn.addEventListener('click', () => {
+  const isLight = document.documentElement.getAttribute('data-theme') === 'light';
+  if (isLight) {
+    document.documentElement.removeAttribute('data-theme');
+    localStorage.setItem('theme', 'dark');
+  } else {
+    document.documentElement.setAttribute('data-theme', 'light');
+    localStorage.setItem('theme', 'light');
+  }
+});
+
+/* ====== Mobile menu ====== */
+const menuBtn = document.getElementById('menuBtn');
+const mobileNav = document.getElementById('mobileNav');
+menuBtn.addEventListener('click', () => mobileNav.classList.toggle('open'));
+mobileNav.querySelectorAll('[data-close]').forEach(a => {
+  a.addEventListener('click', () => mobileNav.classList.remove('open'));
+});
+
+/* ====== Reveal on scroll ====== */
+const revealEls = document.querySelectorAll('.reveal');
+const io = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('visible');
+      io.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+
+revealEls.forEach(el => io.observe(el));
+
+console.info('Portfolio Enhanced · 28 credentials · 7 selected projects · Modern features loaded');
+</script>
+</body>
+</html>
